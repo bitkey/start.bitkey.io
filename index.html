@@ -24,6 +24,9 @@
     #searchbox-form .btn {
       width: 75px;
     }
+    #spacer {
+      height: 200px;
+    }
   </style>
 
   <script>
@@ -38,6 +41,9 @@
 
 <body>
   <div class="container">
+
+    <!-- spacer -->
+    <div id="spacer"></div>
 
     <!-- search box -->
     <div class="row">
@@ -85,6 +91,7 @@
 
   <script type="text/javascript">
     $('#searchbox-form').on('submit', function() {
+      $("#spacer").hide('slow');
       var query = document.getElementById('query');
       var gname = google.search.cse.element.getElement('searchresults-only0');
       gname.execute(query.value);
