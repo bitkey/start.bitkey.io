@@ -12,6 +12,11 @@
   <style type="text/css">
     #searchbox-section #logo {
       margin: 30px 0px 20px 0px;
+      text-align: center;
+    }
+    #searchbox-section #watermark {
+      padding-top: 3px;
+      float: right;
     }
     #searchbox-form #query {
       width: 475px;
@@ -26,17 +31,21 @@
   <div class="container">
 
     <!-- search box -->
-    <div id="searchbox-section" class="text-center">
-      <img id="logo" src="img/bitcoin.png"/>
-      <form id="searchbox-form" class="form-inline" role="form">
-        <div class="form-group">
-          <input autocomplete="off" type="search" class="form-control" name="q" id="query" />
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div id="searchbox-section">
+          <div id="logo"><img src="img/bitcoin.png"/></div>
+          <form id="searchbox-form" class="form-inline" role="form">
+            <div class="form-group">
+              <input autocomplete="off" type="search" class="form-control" name="q" id="query" />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </form>
+          <img id="watermark" src="img/gcse.gif"/>
         </div>
-        <button type="submit" class="btn btn-primary">
-          <span class="glyphicon glyphicon-search"></span>
-        </button>
-      </form>
-      <img id="watermark" src="img/gcse.gif"/>
+      </div>
     </div>
 
     <!-- gcse -->
@@ -54,7 +63,11 @@
     </script>
 
     <!-- search results -->
-    <gcse:searchresults-only></gcse:searchresults-only>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <gcse:searchresults-only></gcse:searchresults-only>
+      </div>
+    </div>
 
   </div>
 
