@@ -24,7 +24,7 @@
     <!-- search box -->
     <div id="searchbox-section" class="text-center">
       <p class="text-center">Bitcoin Search</p>
-      <form id="searchbox-form" method="get" class="form-inline" role="form" name="search">
+      <form id="searchbox-form" class="form-inline" role="form">
         <div class="form-group">
           <input autocomplete="off" type="search" class="form-control" name="q" id="query" />
         </div>
@@ -57,6 +57,14 @@
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
   <script type="text/javascript">
+    $('#searchbox-form').on('submit', function() {
+      var query = document.getElementById('query');
+      var gname = google.search.cse.element.getElement('searchresults-only0');
+      gname.execute(query.value);
+      query.blur();
+      return false;
+    });
+
     $(document).ready( function() {
       var query = document.getElementById('query');
       query.focus();
