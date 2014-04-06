@@ -6,11 +6,34 @@
   <title>BitKey Start Page</title>
 
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+  <style type="text/css">
+    #searchbox-form #query {
+      width: 475px;
+    }
+    #searchbox-form .btn {
+      width: 75px;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
-    <h1>Hello world</h1>
+
+    <!-- search box -->
+    <div id="searchbox-section" class="text-center">
+      <h1>Logo</h1>
+      <form id="searchbox-form" method="get" class="form-inline" role="form" action="http://www.google.com/search" name="search">
+        <div class="form-group">
+          <input autocomplete="off" type="search" class="form-control" name="q" id="query" />
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input type="hidden" name="sa" value="Search" />
+      </form>
+    </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
