@@ -3,7 +3,8 @@
 
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
-  <title>BitKey Start Page</title>
+  <meta name="description" content="Bitcoin Search Engine" />
+  <title>Bitcoin Search</title>
 
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -21,6 +22,7 @@
   <div class="container">
 
     <!-- search box -->
+    <!--
     <div id="searchbox-section" class="text-center">
       <h1>Logo</h1>
       <form id="searchbox-form" method="get" class="form-inline" role="form" action="http://www.google.com/search" name="search">
@@ -34,6 +36,27 @@
         <input type="hidden" name="sa" value="Search" />
       </form>
     </div>
+    -->
+
+    <p class="text-center">Bitcoin Search</p>
+
+    <!-- gcse -->
+    <script>
+      (function() {
+        var cx = 'partner-pub-7795839418824397:2070318172';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+
+    <!-- search results -->
+    <gcse:search></gcse:search>
+
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
