@@ -16,10 +16,6 @@
     }
     #searchbox-section #watermark {
       padding-top: 3px;
-      float: right;
-    }
-    #searchbox-form #query {
-      width: 475px;
     }
     #searchbox-form .btn {
       width: 75px;
@@ -33,6 +29,17 @@
     }
     .query-link {
       padding: 0px 5px;
+    }
+    @media(min-width:767px) {
+      #searchbox-section {
+        max-width: 555px;
+      }
+      #searchbox-form #query {
+        width: 475px;
+      }
+      #searchbox-section #watermark {
+        float: right;
+      }
     }
   </style>
 
@@ -54,8 +61,8 @@
 
     <!-- search box -->
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div id="searchbox-section">
+      <div class="col-lg-6 col-lg-offset-3">
+        <div id="searchbox-section" class="center-block text-center">
           <div id="logo"><img src="img/bitcoin.png"/></div>
           <form id="searchbox-form" class="form-inline" role="form">
             <div class="form-group">
