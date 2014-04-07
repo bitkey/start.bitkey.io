@@ -27,6 +27,13 @@
     #spacer {
       height: 200px;
     }
+    #query-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .query-link {
+      padding: 0px 5px;
+    }
   </style>
 
   <script>
@@ -59,6 +66,13 @@
             </button>
           </form>
           <img id="watermark" src="img/gcse.gif"/>
+          <div id="query-links">
+            <a class="query-link" href="?q=getting-started">getting started</a>
+            <a class="query-link" href="?q=how-to-buy">how to buy</a>
+            <a class="query-link" href="?q=how-to-accept">how to accept</a>
+            <a class="query-link" href="?q=where-to-spend">where to spend</a>
+            <a class="query-link" href="?q=statistics">statistics</a>
+          </div>
         </div>
       </div>
     </div>
@@ -97,6 +111,12 @@
       gname.execute(query.value);
       query.blur();
       return false;
+    });
+
+    $('.query-link').on('click', function() {
+      event.preventDefault();
+      $('#query').val($(this).text());
+      $('#searchbox-form').submit();
     });
 
     $(document).ready( function() {
