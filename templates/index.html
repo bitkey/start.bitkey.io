@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bitcoin Search Engine" />
+  <title>Bitcoin Search</title>
+
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="img/favicon.png">
+
+  <style type="text/css">
+    #searchbox-section #logo {
+      margin: 30px 0px 20px 0px;
+      text-align: center;
+    }
+    #searchbox-section #watermark {
+      padding-top: 3px;
+    }
+    #searchbox-form .btn {
+      width: 75px;
+    }
+    #spacer {
+      height: 200px;
+    }
+    #query-links {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .query-link {
+      padding: 0px 5px;
+    }
+    @media(min-width:767px) {
+      #searchbox-section {
+        max-width: 555px;
+      }
+      #searchbox-form #query {
+        width: 475px;
+      }
+      #searchbox-section #watermark {
+        float: right;
+      }
+    }
+  </style>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49403813-2', 'bitkey.io');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- spacer -->
+    <div id="spacer"></div>
+
+    <!-- search box -->
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <div id="searchbox-section" class="center-block text-center">
+          <div id="logo"><img src="img/bitcoin.png"/></div>
+          <form id="searchbox-form" class="form-inline" role="form">
+            <div class="form-group">
+              <input autocomplete="off" type="search" class="form-control" name="q" id="query" />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </form>
+          <a href="http://www.google.com">
+            <img id="watermark" src="img/gcse.gif"/>
+          </a>
+          <div id="query-links">
+            <a class="query-link" href="?q=getting-started">getting started</a>
+            <a class="query-link" href="?q=how-to-buy">how to buy</a>
+            <a class="query-link" href="?q=how-to-accept">how to accept</a>
+            <a class="query-link" href="?q=where-to-spend">where to spend</a>
+            <a class="query-link" href="?q=statistics">statistics</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- gcse -->
+    <script>
+      (function() {
+        var cx = 'partner-pub-7795839418824397:2070318172';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+
+    <!-- search results -->
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <gcse:searchresults-only></gcse:searchresults-only>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    $('#searchbox-form').on('submit', function() {
+      $("#spacer").hide('slow');
+      var query = document.getElementById('query');
+      var gname = google.search.cse.element.getElement('searchresults-only0');
+      gname.execute(query.value);
+      query.blur();
+      return false;
+    });
+
+    $('.query-link').on('click', function() {
+      event.preventDefault();
+      $('#query').val($(this).text());
+      $('#searchbox-form').submit();
+    });
+
+    $(document).ready( function() {
+      var query = document.getElementById('query');
+      query.focus();
+      query.select();
+    });
+  </script>
+</body>
+
+</html>
