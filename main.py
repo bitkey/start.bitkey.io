@@ -15,7 +15,14 @@ class Main(webapp2.RequestHandler):
     def get(self):
         self.response.write(render('index.html'))
 
+
+class Bookmarks(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(render('bookmarks.html'))
+
+
 app = webapp2.WSGIApplication([
-    ('/', Main),
+    (r'/', Main),
+    (r'/bookmarks/?', Bookmarks),
 ], debug=DEBUG)
 
